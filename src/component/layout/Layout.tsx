@@ -3,6 +3,7 @@ import Header from "../header/Header";
 import styled from "styled-components";
 import Link from "../link/Link";
 import Products from "../product/Products";
+import Footer from "../footer/Footer";
 
 type Data = {
   Name: string;
@@ -75,7 +76,12 @@ const ProductsContainer = styled.div`
   grid-column: 2;
 `;
 
+const FooterContainer = styled.div`
+  grid-column: 2;
+`;
+
 const jsonUrl = "https://raw.githubusercontent.com/kanakanho/links/master/src/data.json";
+
 const Layout: FC = () => {
   const [data, setData] = useState<Data>(demoData);
   useEffect(() => {
@@ -85,18 +91,25 @@ const Layout: FC = () => {
         setData(data[0]);
       });
   }, []);
+
+  
   return (
-    <LayoutContainer>
-      <HeaderContainer>
-        <Header description={data.Description} name={data.Name} icon={data.Icon} />
-      </HeaderContainer>
-      <LinkContainer>
-        <Link links={data.Links} />
-      </LinkContainer>
-      <ProductsContainer>
-        <Products articles={data.article} />
-      </ProductsContainer>
-    </LayoutContainer>
+    <>
+      <LayoutContainer>
+        <HeaderContainer>
+          <Header description={data.Description} name={data.Name} icon={data.Icon} />
+        </HeaderContainer>
+        <LinkContainer>
+          <Link links={data.Links} />
+        </LinkContainer>
+        <ProductsContainer>
+          <Products articles={data.article} />
+        </ProductsContainer>
+      </LayoutContainer>
+      <FooterContainer>
+        <Footer />
+      </FooterContainer>
+    </>
   );
 };
 
