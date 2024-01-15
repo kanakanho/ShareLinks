@@ -14,6 +14,8 @@ const LinkContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  overflow-x: scroll;
+  scrollbar-width: none;
 `;
 
 const IconA = styled.a`

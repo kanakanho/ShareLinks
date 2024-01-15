@@ -13,7 +13,7 @@ const HeaderContainer = styled.div`
   height: auto;
   width: auto;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 1vw;
+  border-radius: 15px;
   text-align: center;
 `;
 

@@ -13,6 +13,10 @@ const IconContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    width: 64px;
+    height: 64px;
+  }
 `;
 
 const IconImg = styled.img`

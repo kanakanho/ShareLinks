@@ -55,6 +55,7 @@ const LayoutContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
 
   @media screen and (max-width: 768px) {
+    display: block;
     width: 100%;
     padding: 5px;
   }
