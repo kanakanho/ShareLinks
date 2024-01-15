@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Link from "../link/Link";
 import Products from "../product/Products";
 import Footer from "../footer/Footer";
+import Button from "./user/Button";
+import User from "./user/User";
 
 type Data = {
   Name: string;
@@ -62,11 +64,19 @@ const LayoutContainer = styled.div`
   }
 `;
 
+const MenuContainer = styled.div`
+  grid-column: 2;
+  position: relative;
+`;
+
 const HeaderContainer = styled.div`
   margin: 1vw 0;
   text-align: center;
   grid-column: 2;
+  position: relative;
 `;
+
+const UserContainer = styled.div``;
 
 const LinkContainer = styled.div`
   grid-column: 2;
@@ -83,6 +93,9 @@ const FooterContainer = styled.div`
 const jsonUrl = "https://raw.githubusercontent.com/kanakanho/links/master/src/data.json";
 
 const Layout: FC = () => {
+  const [isUser, setisUser] = useState<boolean>(false);
+  const [isMenu, setisMenu] = useState<boolean>(false);
+
   const [data, setData] = useState<Data>(demoData);
   useEffect(() => {
     fetch(jsonUrl)
@@ -91,14 +104,21 @@ const Layout: FC = () => {
         setData(data[0]);
       });
   }, []);
-
-  
   return (
     <>
       <LayoutContainer>
+        {isMenu && (
+          <MenuContainer>
+            <div>text</div>
+          </MenuContainer>
+        )}
         <HeaderContainer>
           <Header description={data.Description} name={data.Name} icon={data.Icon} />
         </HeaderContainer>
+        <UserContainer>
+          <Button onClick={setisUser} isUser={isUser} />
+          {isUser && <User onClick={setisMenu} isMenu={isMenu}/>}
+        </UserContainer>
         <LinkContainer>
           <Link links={data.Links} />
         </LinkContainer>

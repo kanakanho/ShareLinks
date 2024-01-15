@@ -34,6 +34,7 @@ const Text = styled.p`
 
 const Header: FC<Props> = ({ description, name, icon }) => {
   const descriptionArray = description.split("\n");
+
   return (
     <HeaderContainer>
       <IconContainer>
