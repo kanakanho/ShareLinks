@@ -19,7 +19,7 @@ type marginType = {
 const CardContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  margin: 30px 0;
+  margin: 20px 0;
   padding: 10px;
 `;
 
@@ -32,10 +32,11 @@ const Title = styled.div`
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
-  padding: 10px 0;
+  margin: 12px 0;
 `;
 
 const Article = styled.div`
+  margin: 10px 0;
   text-align: center;
   font-size: 1rem;
 `;
