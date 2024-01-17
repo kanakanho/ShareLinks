@@ -4,7 +4,7 @@ import { MdAccountCircle } from "react-icons/md";
 
 type Props = {
   onClick: (isMenu: boolean) => void;
-  isUser: boolean;
+  isMenu: boolean;
 };
 
 const ButtonContainer = styled.div`
@@ -19,11 +19,11 @@ const ButtonContainer = styled.div`
   border-radius: 20px;
 `;
 
-const Button: FC<Props> = ({ onClick, isUser }) => {
+const Button: FC<Props> = ({ onClick, isMenu }) => {
   return (
     <ButtonContainer
       onClick={() => {
-        onClick(!isUser);
+        onClick(!isMenu);
       }}
     >
       <MdAccountCircle />
