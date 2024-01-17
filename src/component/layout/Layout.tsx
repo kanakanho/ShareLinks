@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import Header from "../header/Header";
 import styled from "styled-components";
 import Link from "../link/Link";
@@ -6,6 +6,8 @@ import Products from "../product/Products";
 import Footer from "../footer/Footer";
 import Button from "./user/Button";
 import User from "./user/User";
+import Menu from "../menu/Menu";
+import { RecoilRoot } from "recoil";
 
 type Data = {
   Name: string;
@@ -23,6 +25,10 @@ type Data = {
     margin: string;
     link: string;
   }[];
+};
+
+type IsMenu = {
+  isMenu: boolean;
 };
 
 const demoData: Data = {
@@ -65,36 +71,55 @@ const LayoutContainer = styled.div`
 `;
 
 const MenuContainer = styled.div`
-  grid-column: 2;
   position: relative;
+  border-radius: 10px;
+  grid-column: 2;
+  z-index: 1;
+`;
+
+const MainContainer = styled.div<IsMenu>`
+  opacity: ${({ isMenu }) => (isMenu ? 0.5 : 1)};
+  grid-column: 2;
 `;
 
 const HeaderContainer = styled.div`
-  margin: 1vw 0;
+  margin: 20px 0;
   text-align: center;
-  grid-column: 2;
   position: relative;
 `;
 
 const UserContainer = styled.div``;
 
-const LinkContainer = styled.div`
-  grid-column: 2;
-`;
+const LinkContainer = styled.div``;
 
-const ProductsContainer = styled.div`
-  grid-column: 2;
-`;
+const ProductsContainer = styled.div``;
 
-const FooterContainer = styled.div`
-  grid-column: 2;
-`;
+const FooterContainer = styled.div``;
 
 const jsonUrl = "https://raw.githubusercontent.com/kanakanho/links/master/src/data.json";
 
 const Layout: FC = () => {
   const [isUser, setisUser] = useState<boolean>(false);
   const [isMenu, setisMenu] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClickOutsideMenu = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      setisMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isMenu) {
+      document.addEventListener("mousedown", handleClickOutsideMenu);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutsideMenu);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideMenu);
+    };
+  }, [isMenu]);
 
   const [data, setData] = useState<Data>(demoData);
   useEffect(() => {
@@ -105,31 +130,32 @@ const Layout: FC = () => {
       });
   }, []);
   return (
-    <>
+    <RecoilRoot>
       <LayoutContainer>
         {isMenu && (
-          <MenuContainer>
-            <div>text</div>
+          <MenuContainer ref={menuRef}>
+            <Menu></Menu>
           </MenuContainer>
         )}
-        <HeaderContainer>
-          <Header description={data.Description} name={data.Name} icon={data.Icon} />
-        </HeaderContainer>
-        <UserContainer>
-          <Button onClick={setisUser} isUser={isUser} />
-          {isUser && <User onClick={setisMenu} isMenu={isMenu}/>}
-        </UserContainer>
-        <LinkContainer>
-          <Link links={data.Links} />
-        </LinkContainer>
-        <ProductsContainer>
-          <Products articles={data.article} />
-        </ProductsContainer>
+        <MainContainer isMenu={isMenu}>
+          <HeaderContainer>
+            <Header description={data.Description} name={data.Name} icon={data.Icon} />
+          </HeaderContainer>
+          <UserContainer>
+            <Button onClick={setisMenu} isUser={isMenu} />
+          </UserContainer>
+          <LinkContainer>
+            <Link links={data.Links} />
+          </LinkContainer>
+          <ProductsContainer>
+            <Products articles={data.article} />
+          </ProductsContainer>
+        </MainContainer>
       </LayoutContainer>
       <FooterContainer>
         <Footer />
       </FooterContainer>
-    </>
+    </RecoilRoot>
   );
 };
 

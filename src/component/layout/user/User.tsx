@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styled from "styled-components";
-import { googleLogin } from "../../utils/auth";
+import { githubLogin, logout, useGithubLogin } from "../../utils/auth";
+import { useUserState } from "../../globalstate/firebaseUserState";
 
 type Props = {
   onClick: (isMenu: boolean) => void;
@@ -28,16 +29,22 @@ const Text = styled.div`
   padding: 0.5rem 1rem 0.3rem 1rem;
 `;
 
-const User: FC<Props> = ({ onClick ,isMenu}) => {
+const User: FC<Props> = ({ onClick, isMenu }) => {
+  const user = useUserState();
+  const useGithub = useGithubLogin();
   return (
     <MenuContainer>
-      <Text
-        onClick={async () => {
-          await googleLogin();
-        }}
-      >
-        Login
-      </Text>
+      {user ? (
+        <Text onClick={async () => await logout()}>Logout</Text>
+      ) : (
+        <Text
+          onClick={async () => {
+            await githubLogin().then(() => useGithub);
+          }}
+        >
+          Login
+        </Text>
+      )}
       <Line />
       <Text onClick={() => onClick(!isMenu)}>Menu</Text>
     </MenuContainer>
