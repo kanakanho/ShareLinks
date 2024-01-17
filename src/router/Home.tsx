@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import Layout from "../component/layout/Layout";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { useMenuMutators } from "../component/globalstate/menu";
+import bgImage from "../assets/back.png";
 
 const Main = styled.main`
   padding: 0 5vw;
@@ -12,7 +13,7 @@ const Main = styled.main`
   justify-content: center;
   grid-template-columns: 1fr 2fr;
   grid-gap: 5vw;
-  background-image: url("src/assets/back.png");
+  background-image: url(${bgImage});
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
