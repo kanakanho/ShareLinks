@@ -5,7 +5,6 @@ import Link from "../link/Link";
 import Products from "../product/Products";
 import Footer from "../footer/Footer";
 import Button from "./user/Button";
-import User from "./user/User";
 import Menu from "../menu/Menu";
 import { RecoilRoot } from "recoil";
 
