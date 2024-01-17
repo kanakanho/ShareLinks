@@ -99,7 +99,6 @@ const FooterContainer = styled.div``;
 const jsonUrl = "https://raw.githubusercontent.com/kanakanho/links/master/src/data.json";
 
 const Layout: FC = () => {
-  const [isUser, setisUser] = useState<boolean>(false);
   const [isMenu, setisMenu] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
