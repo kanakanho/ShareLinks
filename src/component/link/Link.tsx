@@ -35,7 +35,7 @@ const Link: FC<Props> = ({ links }) => {
     <LinkContainer>
       {links.map((item: Links) => {
         return (
-          <IconA key={item.alt}  href={item.url} target="_blank" rel="noopener noreferrer">
+          <IconA key={item.alt} href={item.url} target="_blank" rel="noopener noreferrer">
             <Icon
               key={item.alt}
               iconLink={`https://kanakanho.vercel.app/img/icon/${item.alt}.png`}
