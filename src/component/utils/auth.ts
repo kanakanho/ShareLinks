@@ -44,15 +44,16 @@ export const useGithubLogin = () => {
         setUserState(user);
         setGithubLogin(true);
         setLoginPermissionState(true);
-        const { uid } = user;
+        const githubUid = user.providerData[0].uid;
         let name = "";
-        fetch(`https://api.github.com/user/${uid}`, { headers: { Accept: "application/json" } })
-          .then((res) => res.json())
+        fetch(`https://api.github.com/user/${githubUid}`)
+          .then((res) => {
+            return res.json();
+          })
           .then((data) => {
-            // console.log("data", data);
             name = data.login;
+            setDetailPermissionState(name);
           });
-        setDetailPermissionState(name);
       } else {
         setGithubLogin(false);
       }

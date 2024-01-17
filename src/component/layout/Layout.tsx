@@ -14,11 +14,11 @@ type Props = {
 };
 
 type IsMenu = {
-  isMenu: boolean;
+  $ismenu: string;
 };
 
 type IsDemo = {
-  isDemo: boolean;
+  $isdemo: string;
 };
 
 const LayoutContainer = styled.div<IsDemo>`
@@ -31,7 +31,7 @@ const LayoutContainer = styled.div<IsDemo>`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
-  border-radius: ${({ isDemo }) => (isDemo ? "15px" : "0")};
+  border-radius: ${({ $isdemo }) => ($isdemo === "true" ? "15px" : "0")};
 
   @media screen and (max-width: 768px) {
     display: block;
@@ -48,7 +48,7 @@ const MenuContainer = styled.div`
 `;
 
 const MainContainer = styled.div<IsMenu>`
-  opacity: ${({ isMenu }) => (isMenu ? 0.5 : 1)};
+  opacity: ${({ $ismenu }) => ($ismenu === "true" ? 0.5 : 1)};
   grid-column: 2;
 `;
 
@@ -101,26 +101,28 @@ const Layout: FC<Props> = ({ params }) => {
 
   const [data, setData] = useState<Data>(demoData);
   useEffect(() => {
-    fetch(jsonUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data[0]);
-      });
-  }, [jsonUrl]);
+    if (params !== "text") {
+      fetch(jsonUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data[0]);
+        });
+    }
+  }, [jsonUrl, params]);
   return (
     <>
-      <LayoutContainer isDemo={isDemo}>
+      <LayoutContainer $isdemo={isDemo ? "true" : "false"}>
         {isMenu && (
           <MenuContainer ref={menuRef}>
             <Menu></Menu>
           </MenuContainer>
         )}
-        <MainContainer isMenu={isMenu}>
+        <MainContainer $ismenu={isMenu ? "true" : "false"}>
           <HeaderContainer>
             <Header description={data.Description} name={data.Name} icon={data.Icon} />
           </HeaderContainer>
           <UserContainer>
-            <Button onClick={setMenuPermissionState} isUser={isMenu} />
+            <Button onClick={setMenuPermissionState} isMenu={isMenu} />
           </UserContainer>
           <LinkContainer>
             <Link links={data.Links} />

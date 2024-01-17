@@ -13,7 +13,7 @@ type Props = {
 };
 
 type marginType = {
-  margin: string;
+  $margin: string;
 };
 
 const CardContainer = styled.div`
@@ -42,7 +42,7 @@ const Article = styled.div`
 `;
 
 const MarginContainer = styled.div<marginType>`
-  height: ${(props) => props.margin};
+  height: ${(props) => props.$margin};
 `;
 
 const Card: FC<Props> = ({ image, movie, title, article, margin, link }) => {
@@ -59,13 +59,13 @@ const Card: FC<Props> = ({ image, movie, title, article, margin, link }) => {
     );
   }
   if (margin === "absent") {
-    return <MarginContainer margin="30px" />;
+    return <MarginContainer $margin="30px" />;
   }
   if (margin === "low") {
-    return <MarginContainer margin="30px" />;
+    return <MarginContainer $margin="30px" />;
   }
   if (margin === "high") {
-    return <MarginContainer margin="50px" />;
+    return <MarginContainer $margin="50px" />;
   }
 };
 
