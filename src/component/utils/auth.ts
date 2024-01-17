@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { auth } from "./firebase";
 import { useUserMutators } from "../globalstate/firebaseUserState";
 import { useDetailMutators } from "../globalstate/details";
+import { useLoginMutators } from "../globalstate/login";
 
 export const googleLogin = async (): Promise<void> => {
   const provider = new GoogleAuthProvider();
@@ -28,7 +29,6 @@ export const logout = async (): Promise<void> => {
   signOut(auth).catch((error) => {
     console.error(error);
   });
-  // リロードする
   window.location.reload();
 };
 
@@ -37,13 +37,22 @@ export const useGithubLogin = () => {
   const [githubLogin, setGithubLogin] = useState(false);
   const { setUserState } = useUserMutators();
   const { setDetailPermissionState } = useDetailMutators();
+  const { setLoginPermissionState } = useLoginMutators();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserState(user);
         setGithubLogin(true);
-        const githubName = user.reloadUserInfo.screenName;
-        setDetailPermissionState(githubName);
+        setLoginPermissionState(true);
+        const { uid } = user;
+        let name = "";
+        fetch(`https://api.github.com/user/${uid}`, { headers: { Accept: "application/json" } })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log("data", data);
+            name = data.login;
+          });
+        setDetailPermissionState(name);
       } else {
         setGithubLogin(false);
       }
@@ -51,7 +60,7 @@ export const useGithubLogin = () => {
     return () => {
       unsubscribe();
     };
-  }, [setUserState, setDetailPermissionState]);
+  }, [setUserState, setDetailPermissionState, setLoginPermissionState]);
 
   return {
     githubLogin,

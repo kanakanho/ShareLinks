@@ -2,9 +2,10 @@ import { FC, useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { FaCopy } from "react-icons/fa";
 import { useDetailState } from "../globalstate/details";
-import { LuLogIn, LuLogOut } from "react-icons/lu";
-import { githubLogin, logout, useGithubLogin } from "../utils/auth";
-import { reload } from "firebase/auth";
+import { LuLogOut } from "react-icons/lu";
+import { logout } from "../utils/auth";
+import Login from "./Login";
+import { useLoginMutators, useLoginState } from "../globalstate/login";
 
 const MenuContainer = styled.div`
   position: absolute;
@@ -36,16 +37,6 @@ const Text = styled.div`
   padding: 5px 0;
 `;
 
-const Login = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  margin: 20px 0 0 0;
-  background-color: #eee;
-  border-radius: 5px;
-`;
-
 const Logout = styled.div`
   position: absolute;
   top: 0;
@@ -69,8 +60,9 @@ const Url = styled.a`
 `;
 
 const Menu: FC = () => {
-  const useGithub = useGithubLogin();
   const [userUrl, setUserUrl] = useState<string>("");
+  const { setLoginPermissionState } = useLoginMutators();
+  const isLogin = useLoginState();
 
   const name = useDetailState();
   const mainUrl = "https://share-links-kanakanho.vercel.app/";
@@ -85,9 +77,9 @@ const Menu: FC = () => {
   return (
     <MenuContainer>
       <Info>
-        {name ? (
+        {isLogin ? (
           <Info>
-            <Logout onClick={async () => await logout().then(() => reload)}>
+            <Logout onClick={async () => await logout().then(() => setLoginPermissionState(false))}>
               <LuLogOut />
               Logout
             </Logout>
@@ -103,31 +95,11 @@ const Menu: FC = () => {
               という名前のレポジトリを作ろう!
             </Text>
             <Text>3. そのレポジトリに先に作っておいたjsonファイルをあげよう!</Text>
-            <Text>4. 下のボタンからGithubでこのサービスにログイン</Text>
+            <Text style={{ opacity: 0.5 }}>4. 下のボタンからGithubでこのサービスにログイン</Text>
             <Text>5. 発行されたリンクをコピーしてポートフォリオを共有しよう!</Text>
           </Info>
         ) : (
-          <>
-            <Title>ShareLinks へようこそ</Title>
-            <MiniTitle>ShareLinks の使い方</MiniTitle>
-            <Text>
-              1. <a href="れーどめー">この書き方</a>に沿って自分のポートレートの中身をjsonに書こう!
-            </Text>
-            <Text>
-              2. Githubに<span onClick={() => copyToClipboard()}>ShareLinks</span>
-              という名前のレポジトリを作ろう!
-            </Text>
-            <Text>3. そのレポジトリに先に作っておいたjsonファイルをあげよう!</Text>
-            <Text>4. 下のボタンからGithubでこのサービスにログイン</Text>
-            <Login
-              onClick={async () => {
-                await githubLogin().then(() => useGithub);
-              }}
-            >
-              <LuLogIn />
-              Githubでログイン
-            </Login>
-          </>
+          <Login />
         )}
       </Info>
     </MenuContainer>
