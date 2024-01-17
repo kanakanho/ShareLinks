@@ -1,104 +1,104 @@
 [
-    {
-        "Name": "柴田青賢",
-        "Description": "愛知工業大学 情報科学部 情報科学科 1年\nデザインもするプログラマーです\n \nNext & React , python\nAdobe illustrator & Figma\n \n各プロジェクトの詳細は下のArticleよりご確認ください",
-        "Icon": "https://pbs.twimg.com/profile_images/1673567713954873344/SQymHa9-_400x400.jpg",
-        "Links": [
-            { "alt": "Twitter", "url": "https://twitter.com/Shiba_ao_" },
-            { "alt": "Github", "url": "https://github.com/kanakanho" },
-            { "alt": "Article", "url": "https://kanakanho-record.vercel.app" },
-            { "alt": "Qiita", "url": "https://qiita.com/kanakanho" },
-            { "alt": "Zenn", "url": "https://zenn.dev/kanakanho" },
-            { "alt": "Youtube", "url": "https://www.youtube.com/@kanakanho" }
-        ],
-        "article": [
-            {
-                "image": "",
-                "movie": "",
-                "title": "2024",
-                "article": "",
-                "margin": "",
-                "link": ""
-            },
-            {
-                "image": "https://kanakanho-record.vercel.app/img/munsellcolor.jpeg",
-                "movie": "",
-                "title": "webサイト「munsell-colors」",
-                "article": "個人開発で作った色を見つけるためのwebサイトです。",
-                "margin": "",
-                "link": "https://kanakanho-record.vercel.app/posts/munsellcolors/"
-            },
-            {
-                "image": "",
-                "movie": "",
-                "title": "",
-                "article": "",
-                "margin": "absent",
-                "link": ""
-            },
-            {
-                "image": "",
-                "movie": "",
-                "title": "2023",
-                "article": "",
-                "margin": "",
-                "link": "https://kanakanho-record.vercel.app/posts/review2023/"
-            },
-            {
-                "image": "https://kanakanho-record.vercel.app/img/geekcamp-1118/title.png",
-                "movie": "",
-                "title": "プラットフォーム「簡単行列整理くん」",
-                "article": "技育CAMPキャラバン名古屋で最優秀賞をいただいたプロダクトです。",
-                "margin": "",
-                "link": "https://kanakanho-record.vercel.app/posts/geekcamp-1118"
-            },
-            {
-                "image": "https://ait-tgs-tyuukanotatujin.vercel.app/img/image.png",
-                "movie": "",
-                "title": "ゲーム 「中華の達人」",
-                "article": "TGS2023に向けて制作したゲームです。",
-                "margin": "",
-                "link": "https://ait-tgs-tyuukanotatujin.vercel.app/"
-            },
-            {
-                "image": "",
-                "movie": "8OoMQy0keGE",
-                "title": "アプリ 「wisdom Tree」",
-                "article": "技育展2023に向けて開発したアプリです。",
-                "margin": "",
-                "link": "https://kanakanho-record.vercel.app/posts/wisdom-tree"
-            },
-            {
-                "image": "https://kanakanho-record.vercel.app/img/geekcamp-0617/paper_app_title.png",
-                "movie": "",
-                "title": "アプリ 「かみあぷり」",
-                "article": "技育CAMPキャラバン 福岡 にて最優秀賞、技育CAMP アドバンス にて 企業賞(MIXI賞)を受賞したアプリです。",
-                "margin": "",
-                "link": "https://kanakanho-record.vercel.app/posts/geekcamp-0617"
-            },
-            {
-                "image": "",
-                "movie": "",
-                "title": "",
-                "article": "",
-                "margin": "absent",
-                "link": ""
-            },
-            {
-                "image": "",
-                "movie": "",
-                "title": "2022",
-                "article": "",
-                "margin": "",
-                "link": ""
-            },
-            {
-                "image": "https://pbs.twimg.com/media/Fk86-V_aUAA0ZIB?format=jpg&name=4096x4096",
-                "movie": "",
-                "title": "イラスト 「星空のダンスフロア」",
-                "article": "illustrator & Photoshop",
-                "margin": ""
-            }
-        ]
-    }
+  {
+    "Name": "柴田青賢",
+    "Description": "愛知工業大学 情報科学部 情報科学科 1年\nデザインもするプログラマーです\n \nNext & React , python\nAdobe illustrator & Figma\n \n各プロジェクトの詳細は下のArticleよりご確認ください",
+    "Icon": "https://pbs.twimg.com/profile_images/1673567713954873344/SQymHa9-_400x400.jpg",
+    "Links": [
+      { "alt": "Twitter", "url": "https://twitter.com/Shiba_ao_" },
+      { "alt": "Github", "url": "https://github.com/kanakanho" },
+      { "alt": "Article", "url": "https://kanakanho-record.vercel.app" },
+      { "alt": "Qiita", "url": "https://qiita.com/kanakanho" },
+      { "alt": "Zenn", "url": "https://zenn.dev/kanakanho" },
+      { "alt": "Youtube", "url": "https://www.youtube.com/@kanakanho" }
+    ],
+    "article": [
+      {
+        "image": "",
+        "movie": "",
+        "title": "2024",
+        "article": "",
+        "margin": "",
+        "link": ""
+      },
+      {
+        "image": "https://kanakanho-record.vercel.app/img/munsellcolor.jpeg",
+        "movie": "",
+        "title": "webサイト「munsell-colors」",
+        "article": "個人開発で作った色を見つけるためのwebサイトです。",
+        "margin": "",
+        "link": "https://kanakanho-record.vercel.app/posts/munsellcolors/"
+      },
+      {
+        "image": "",
+        "movie": "",
+        "title": "",
+        "article": "",
+        "margin": "absent",
+        "link": ""
+      },
+      {
+        "image": "",
+        "movie": "",
+        "title": "2023",
+        "article": "",
+        "margin": "",
+        "link": "https://kanakanho-record.vercel.app/posts/review2023/"
+      },
+      {
+        "image": "https://kanakanho-record.vercel.app/img/geekcamp-1118/title.png",
+        "movie": "",
+        "title": "プラットフォーム「簡単行列整理くん」",
+        "article": "技育CAMPキャラバン名古屋で最優秀賞をいただいたプロダクトです。",
+        "margin": "",
+        "link": "https://kanakanho-record.vercel.app/posts/geekcamp-1118"
+      },
+      {
+        "image": "https://ait-tgs-tyuukanotatujin.vercel.app/img/image.png",
+        "movie": "",
+        "title": "ゲーム 「中華の達人」",
+        "article": "TGS2023に向けて制作したゲームです。",
+        "margin": "",
+        "link": "https://ait-tgs-tyuukanotatujin.vercel.app/"
+      },
+      {
+        "image": "",
+        "movie": "8OoMQy0keGE",
+        "title": "アプリ 「wisdom Tree」",
+        "article": "技育展2023に向けて開発したアプリです。",
+        "margin": "",
+        "link": "https://kanakanho-record.vercel.app/posts/wisdom-tree"
+      },
+      {
+        "image": "https://kanakanho-record.vercel.app/img/geekcamp-0617/paper_app_title.png",
+        "movie": "",
+        "title": "アプリ 「かみあぷり」",
+        "article": "技育CAMPキャラバン 福岡 にて最優秀賞、技育CAMP アドバンス にて 企業賞(MIXI賞)を受賞したアプリです。",
+        "margin": "",
+        "link": "https://kanakanho-record.vercel.app/posts/geekcamp-0617"
+      },
+      {
+        "image": "",
+        "movie": "",
+        "title": "",
+        "article": "",
+        "margin": "absent",
+        "link": ""
+      },
+      {
+        "image": "",
+        "movie": "",
+        "title": "2022",
+        "article": "",
+        "margin": "",
+        "link": ""
+      },
+      {
+        "image": "https://pbs.twimg.com/media/Fk86-V_aUAA0ZIB?format=jpg&name=4096x4096",
+        "movie": "",
+        "title": "イラスト 「星空のダンスフロア」",
+        "article": "illustrator & Photoshop",
+        "margin": ""
+      }
+    ]
+  }
 ]

@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import Header from "../header/Header";
 import styled from "styled-components";
 import Link from "../link/Link";
@@ -6,53 +6,22 @@ import Products from "../product/Products";
 import Footer from "../footer/Footer";
 import Button from "./user/Button";
 import Menu from "../menu/Menu";
-import { RecoilRoot } from "recoil";
+import { useMenuMutators, useMenuState } from "../globalstate/menu";
+import { Data, demoData } from "../utils/data";
 
-type Data = {
-  Name: string;
-  Description: string;
-  Icon: string;
-  Links: {
-    alt: string;
-    url: string;
-  }[];
-  article: {
-    image: string;
-    movie: string;
-    title: string;
-    article: string;
-    margin: string;
-    link: string;
-  }[];
+type Props = {
+  params: string;
 };
 
 type IsMenu = {
   isMenu: boolean;
 };
 
-const demoData: Data = {
-  Name: "Kanako's Portfolio",
-  Description: "Kanako's Portfolio",
-  Icon: "https://pbs.twimg.com/profile_images/1673567713954873344/SQymHa9-_400x400.jpg",
-  Links: [
-    {
-      alt: "github",
-      url: "",
-    },
-  ],
-  article: [
-    {
-      image: "",
-      movie: "",
-      title: "2024",
-      article: "",
-      margin: "",
-      link: "",
-    },
-  ],
+type IsDemo = {
+  isDemo: boolean;
 };
 
-const LayoutContainer = styled.div`
+const LayoutContainer = styled.div<IsDemo>`
   height: fit-content;
   background-image: url("https://kanakanho.vercel.app/img/blue.jpeg");
   background-position: center center;
@@ -61,6 +30,8 @@ const LayoutContainer = styled.div`
 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  border-radius: ${({ isDemo }) => (isDemo ? "15px" : "0")};
 
   @media screen and (max-width: 768px) {
     display: block;
@@ -95,17 +66,27 @@ const ProductsContainer = styled.div``;
 
 const FooterContainer = styled.div``;
 
-const jsonUrl = "https://raw.githubusercontent.com/kanakanho/links/master/src/data.json";
-
-const Layout: FC = () => {
-  const [isMenu, setisMenu] = useState<boolean>(false);
+const Layout: FC<Props> = ({ params }) => {
+  const isMenu = useMenuState();
+  const { setMenuPermissionState } = useMenuMutators();
+  const [isDemo, setisDemo] = useState<boolean>(false);
+  useEffect(() => {
+    if (params === "text") {
+      setisDemo(true);
+    }
+  }, [params]);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const handleClickOutsideMenu = (event: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      setisMenu(false);
-    }
-  };
+  const jsonUrl = `https://raw.githubusercontent.com/${params}/ShareLinks/main/data.json`;
+
+  const handleClickOutsideMenu = useCallback(
+    (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuPermissionState(false);
+      }
+    },
+    [setMenuPermissionState, menuRef]
+  );
 
   useEffect(() => {
     if (isMenu) {
@@ -113,11 +94,10 @@ const Layout: FC = () => {
     } else {
       document.removeEventListener("mousedown", handleClickOutsideMenu);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutsideMenu);
     };
-  }, [isMenu]);
+  }, [isMenu, handleClickOutsideMenu]);
 
   const [data, setData] = useState<Data>(demoData);
   useEffect(() => {
@@ -126,10 +106,10 @@ const Layout: FC = () => {
       .then((data) => {
         setData(data[0]);
       });
-  }, []);
+  }, [jsonUrl]);
   return (
-    <RecoilRoot>
-      <LayoutContainer>
+    <>
+      <LayoutContainer isDemo={isDemo}>
         {isMenu && (
           <MenuContainer ref={menuRef}>
             <Menu></Menu>
@@ -140,7 +120,7 @@ const Layout: FC = () => {
             <Header description={data.Description} name={data.Name} icon={data.Icon} />
           </HeaderContainer>
           <UserContainer>
-            <Button onClick={setisMenu} isUser={isMenu} />
+            <Button onClick={setMenuPermissionState} isUser={isMenu} />
           </UserContainer>
           <LinkContainer>
             <Link links={data.Links} />
@@ -150,10 +130,14 @@ const Layout: FC = () => {
           </ProductsContainer>
         </MainContainer>
       </LayoutContainer>
-      <FooterContainer>
-        <Footer />
-      </FooterContainer>
-    </RecoilRoot>
+      {isDemo ? (
+        <></>
+      ) : (
+        <FooterContainer>
+          <Footer />
+        </FooterContainer>
+      )}
+    </>
   );
 };
 
