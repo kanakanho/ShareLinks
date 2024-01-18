@@ -78,7 +78,7 @@ const Layout: FC<Props> = ({ params }) => {
   }, [params]);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const jsonUrl = `https://raw.githubusercontent.com/${params}/ShareLinks/add-bgimage/data.json`;
+  const jsonUrl = `https://raw.githubusercontent.com/${params}/ShareLinks/main/data.json`;
 
   const handleClickOutsideMenu = useCallback(
     (event: MouseEvent) => {
