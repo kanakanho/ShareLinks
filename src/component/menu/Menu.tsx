@@ -29,8 +29,10 @@ const Title = styled.div`
 `;
 
 const MiniTitle = styled.div`
-  margin: 20px 0 10px 0;
-  padding: 5px 15px;
+  margin: 30px 0 15px 0;
+  padding: 0 15px;
+  font-size: 20px;
+  font-weight: 600;
 `;
 
 const Text = styled.div`
