@@ -13,8 +13,10 @@ const Title = styled.div`
 `;
 
 const MiniTitle = styled.div`
-  margin: 20px 0 10px 0;
-  padding: 5px 15px;
+  margin: 30px 0 15px 0;
+  padding: 0 15px;
+  font-size: 20px;
+  font-weight: 600;
 `;
 
 const Text = styled.div`
@@ -41,7 +43,8 @@ const Login: FC = () => {
       <Title>ShareLinks へようこそ</Title>
       <MiniTitle>ShareLinks の使い方</MiniTitle>
       <Text>
-        1. <a href="れーどめー">この書き方</a>に沿って自分のポートレートの中身をjsonに書こう!
+        1. <a href="https://github.com/kanakanho/ShareLinks">この書き方</a>
+        に沿ってポートレートの内容をdata.jsonに書こう!
       </Text>
       <Text>
         2. Githubに<span onClick={() => copyToClipboard()}>ShareLinks</span>
