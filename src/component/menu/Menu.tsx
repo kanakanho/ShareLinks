@@ -49,6 +49,16 @@ const Logout = styled.div`
   padding: 7px 15px 5px 15px;
   background-color: #eee;
   border-radius: 5px;
+  cursor: pointer;
+`;
+
+const Copy = styled.span`
+  color: #333;
+  cursor: pointer;
+
+  :hover {
+    color: #ddd;
+  }
 `;
 
 const Info = styled.div`
@@ -94,7 +104,7 @@ const Menu: FC = () => {
               に沿ってポートレートの内容をdata.jsonに書こう!
             </Text>
             <Text>
-              2. Githubに<span onClick={() => copyToClipboard()}>ShareLinks</span>
+              2. Githubに<Copy onClick={() => copyToClipboard()}>ShareLinks</Copy>
               という名前のレポジトリを作ろう!
             </Text>
             <Text>3. そのレポジトリに作っておいたdata.jsonをあげよう!</Text>

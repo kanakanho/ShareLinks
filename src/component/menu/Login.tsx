@@ -23,6 +23,15 @@ const Text = styled.div`
   padding: 5px 0;
 `;
 
+const Copy = styled.span`
+  color: #ddd;
+  cursor: pointer;
+
+  :hover {
+    color: #eee;
+  }
+`;
+
 const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -31,6 +40,7 @@ const LoginContainer = styled.div`
   margin: 20px 0 0 0;
   background-color: #eee;
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 const Login: FC = () => {
@@ -47,7 +57,7 @@ const Login: FC = () => {
         に沿ってポートレートの内容をdata.jsonに書こう!
       </Text>
       <Text>
-        2. Githubに<span onClick={() => copyToClipboard()}>ShareLinks</span>
+        2. Githubに<Copy onClick={() => copyToClipboard()}>ShareLinks</Copy>
         という名前のレポジトリを作ろう!
       </Text>
       <Text>3. そのレポジトリに先に作っておいたjsonファイルをあげよう!</Text>
