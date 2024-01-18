@@ -64,7 +64,7 @@ const LinkContainer = styled.div``;
 
 const ProductsContainer = styled.div``;
 
-const FooterContainer = styled.div``;
+const FooterContainer = styled.a``;
 
 const Layout: FC<Props> = ({ params }) => {
   const isMenu = useMenuState();
@@ -135,7 +135,7 @@ const Layout: FC<Props> = ({ params }) => {
       {isDemo ? (
         <></>
       ) : (
-        <FooterContainer>
+        <FooterContainer href="https://github.com/kanakanho">
           <Footer />
         </FooterContainer>
       )}

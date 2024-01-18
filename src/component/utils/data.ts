@@ -17,8 +17,8 @@ export type Data = {
 };
 
 export const demoData: Data = {
-  Name: "Your Name",
-  Description: "AIT'23 / Web Developer\nTypeScript & Python",
+  Name: "Programmer",
+  Description: "Web Developer\nTypeScript & Python",
   Icon: "https://pbs.twimg.com/profile_images/1673567713954873344/SQymHa9-_400x400.jpg",
   Links: [
     {
