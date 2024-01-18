@@ -32,7 +32,7 @@ const AppName = styled.div`
   p {
     font-size: 25px;
     font-weight: bold;
-    font-family: 'Zen Maru Gothic', serif;
+    font-family: "Zen Maru Gothic", serif;
   }
 
   h1 {

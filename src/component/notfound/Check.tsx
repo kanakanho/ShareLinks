@@ -66,7 +66,6 @@ const Check: FC = () => {
     fetch(`https://api.github.com/repos/${githubName.current}/ShareLinks`)
       .then((res) => {
         if (res.status === 200) {
-          console.log(res);
           setIsCheck(true);
         } else {
           setIsCheck(false);

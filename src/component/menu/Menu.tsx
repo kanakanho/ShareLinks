@@ -90,7 +90,8 @@ const Menu: FC = () => {
             <FaCopy />
             <MiniTitle>ShareLinks の使い方</MiniTitle>
             <Text>
-              1. <a href="https://github.com/kanakanho/ShareLinks">この書き方</a>に沿ってポートレートの内容をdata.jsonに書こう!
+              1. <a href="https://github.com/kanakanho/ShareLinks">この書き方</a>
+              に沿ってポートレートの内容をdata.jsonに書こう!
             </Text>
             <Text>
               2. Githubに<span onClick={() => copyToClipboard()}>ShareLinks</span>
