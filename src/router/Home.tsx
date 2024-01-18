@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { styled } from "styled-components";
 import Layout from "../component/layout/Layout";
 import { IoArrowForwardOutline } from "react-icons/io5";
@@ -18,6 +18,13 @@ const Main = styled.main`
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 3vw;
+  }
 `;
 
 const AppName = styled.div`
@@ -35,11 +42,17 @@ const AppName = styled.div`
     font-size: 25px;
     font-weight: bold;
     font-family: "Zen Maru Gothic", serif;
+    word-break: auto-phrase;
   }
 
   h1 {
     font-size: 50px;
     color: orange;
+  }
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+    top: 5vh;
   }
 `;
 
@@ -79,22 +92,29 @@ const AppTest = styled.div`
   height: 100%;
   grid-column: 2;
   border-radius: 10px;
+
+  @media screen and (max-width: 768px) {
+    width: 92vw;
+  }
 `;
 
 const LayoutContainer = styled.div`
   margin: 40px 0;
+  @media screen and (max-width: 768px) {
+    margin: 10px 0;
+  }
 `;
 
 const Home: FC = () => {
   const [isCheck, setIsCheck] = useState(false);
   const { setMenuPermissionState } = useMenuMutators();
+  const scrollpointRef = useRef<HTMLDivElement>(null);
 
   const openMenu = () => {
     setMenuPermissionState(true);
-    window.scroll({
-      top: 0,
-      left: 0,
+    scrollpointRef?.current?.scrollIntoView({
       behavior: "smooth",
+      block: "start",
     });
   };
 
@@ -120,7 +140,7 @@ const Home: FC = () => {
         )}
       </AppName>
       <AppTest>
-        <LayoutContainer>
+        <LayoutContainer ref={scrollpointRef}>
           <Layout params="text" />
         </LayoutContainer>
       </AppTest>
