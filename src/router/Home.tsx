@@ -9,7 +9,6 @@ const Main = styled.main`
   padding: 0 5vw;
   display: grid;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   grid-template-columns: 1fr 2fr;
   grid-gap: 5vw;
@@ -28,11 +27,12 @@ const AppName = styled.div`
   position: fixed;
   top: 34vh;
 
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
-  opacity: 0.8;
   p {
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Zen Maru Gothic', serif;
   }
 
   h1 {
@@ -85,7 +85,8 @@ const Home: FC = () => {
   return (
     <Main>
       <AppName>
-        <p>簡単に作る自分だけのポートフォリオ</p>
+        <p>デザインいらず！</p>
+        <p>ノーコードで作るポートフォリオ</p>
         <h1>ShareLinks</h1>
         <Start onClick={openMenu}>
           試してみる

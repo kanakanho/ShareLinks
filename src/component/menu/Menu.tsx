@@ -88,13 +88,13 @@ const Menu: FC = () => {
             <FaCopy />
             <MiniTitle>ShareLinks の使い方</MiniTitle>
             <Text>
-              1. <a href="れーどめー">この書き方</a>に沿って自分のポートレートの中身をjsonに書こう!
+              1. <a href="https://github.com/kanakanho/ShareLinks">この書き方</a>に沿ってポートレートの内容をdata.jsonに書こう!
             </Text>
             <Text>
               2. Githubに<span onClick={() => copyToClipboard()}>ShareLinks</span>
               という名前のレポジトリを作ろう!
             </Text>
-            <Text>3. そのレポジトリに先に作っておいたjsonファイルをあげよう!</Text>
+            <Text>3. そのレポジトリに作っておいたdata.jsonをあげよう!</Text>
             <Text style={{ opacity: 0.5 }}>4. 下のボタンからGithubでこのサービスにログイン</Text>
             <Text>5. 発行されたリンクをコピーしてポートフォリオを共有しよう!</Text>
           </Info>
