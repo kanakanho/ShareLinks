@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { styled } from "styled-components";
 import Layout from "../component/layout/Layout";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { useMenuMutators } from "../component/globalstate/menu";
 import bgImage from "../assets/back.png";
+import Check from "../component/notfound/Check";
+import { RiSearch2Line } from "react-icons/ri";
 
 const Main = styled.main`
   padding: 0 5vw;
@@ -25,7 +27,7 @@ const AppName = styled.div`
   padding: 20px;
 
   position: fixed;
-  top: 34vh;
+  top: 26vh;
 
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
@@ -43,6 +45,19 @@ const AppName = styled.div`
 
 const Start = styled.div`
   margin: 20px auto;
+  padding: 10px 20px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #cef;
+  border-radius: 10px;
+`;
+
+const Button = styled.div`
+  margin: 20px auto;
   padding: 10px 20px 8px 20px;
   width: fit-content;
   display: flex;
@@ -50,7 +65,7 @@ const Start = styled.div`
   justify-content: center;
   font-size: 20px;
   cursor: pointer;
-  background-color: #ddd;
+  background-color: #eee;
   border-radius: 10px;
 `;
 
@@ -71,6 +86,7 @@ const LayoutContainer = styled.div`
 `;
 
 const Home: FC = () => {
+  const [isCheck, setIsCheck] = useState(false);
   const { setMenuPermissionState } = useMenuMutators();
 
   const openMenu = () => {
@@ -94,6 +110,14 @@ const Home: FC = () => {
             <IoArrowForwardOutline />
           </Icon>
         </Start>
+        {isCheck ? (
+          <Check />
+        ) : (
+          <Button onClick={() => setIsCheck(true)}>
+            ユーザーを探す
+            <RiSearch2Line />
+          </Button>
+        )}
       </AppName>
       <AppTest>
         <LayoutContainer>

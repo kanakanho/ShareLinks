@@ -54,11 +54,6 @@ const Button = styled.div`
   border-radius: 10px;
 `;
 
-const CheckContainer = styled.input`
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-`;
-
 const NotFound: FC = () => {
   const [isCheck, setIsCheck] = useState(false);
   return (

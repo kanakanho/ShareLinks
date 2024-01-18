@@ -14,6 +14,7 @@ const InputContainer = styled.div`
 `;
 const Input = styled.input`
   width: -webkit-fill-available;
+  margin: 0 0 0 10px;
   padding: 10px 20px 8px 20px;
   font-size: 20px;
   cursor: text;
