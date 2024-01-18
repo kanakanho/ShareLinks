@@ -53,7 +53,7 @@ const Logout = styled.div`
 `;
 
 const Copy = styled.span`
-  color: #333;
+  color: #444;
   cursor: pointer;
 
   :hover {
