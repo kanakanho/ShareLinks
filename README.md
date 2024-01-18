@@ -25,6 +25,7 @@ json の形に従って情報を入力することでオリジナルのポート
 "Name": "あなたの名前",
 "Description": "プロフィールが書けます",
 "Icon": "外部のサービスにあげた画像のリンクを貼ってください"
+"BgImage" : "外部サービスにあげた背景画像のリンクを貼ってください",
 ```
 
 > [!NOTE]
@@ -133,6 +134,7 @@ Youtubeの動画を貼れます。
     "Name": "Your Name",
     "Description": "Your Profile",
     "Icon": "your icon link (Ex: https://exaple.con/icon.png)",
+    "BgImage" : "https://kanakanho.vercel.app/img/blue.jpeg",
     "Links": [
       { "alt": "Twitter", "url": "https://twitter.com/" },
       { "alt": "Github", "url": "https://github.com/" },
