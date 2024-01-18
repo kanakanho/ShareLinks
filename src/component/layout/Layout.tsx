@@ -17,13 +17,14 @@ type IsMenu = {
   $ismenu: string;
 };
 
-type IsDemo = {
+type LauoutProps = {
+  url : string;
   $isdemo: string;
 };
 
-const LayoutContainer = styled.div<IsDemo>`
+const LayoutContainer = styled.div<LauoutProps>`
   height: fit-content;
-  background-image: url("https://kanakanho.vercel.app/img/blue.jpeg");
+  background-image: url(${({ url }) => url});
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -111,7 +112,7 @@ const Layout: FC<Props> = ({ params }) => {
   }, [jsonUrl, params]);
   return (
     <>
-      <LayoutContainer $isdemo={isDemo ? "true" : "false"}>
+      <LayoutContainer url={data.BgImage} $isdemo={isDemo ? "true" : "false"}>
         {isMenu && (
           <MenuContainer ref={menuRef}>
             <Menu></Menu>
