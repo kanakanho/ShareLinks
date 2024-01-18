@@ -24,11 +24,11 @@ const Text = styled.div`
 `;
 
 const Copy = styled.span`
-  color: #ddd;
+  color: #444;
   cursor: pointer;
 
   :hover {
-    color: #eee;
+    color: #ddd;
   }
 `;
 
