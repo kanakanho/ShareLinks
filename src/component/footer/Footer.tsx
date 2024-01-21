@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 
 const FooterContainer = styled.div`
   margin: 0;
-  width: 102%;
   background-color: #ccc;
   text-align: center;
 `;

@@ -30,8 +30,11 @@ const Main = styled.main`
 const AppName = styled.div`
   grid-column: 1;
   text-align: center;
-  margin: 20px auto;
+  margin: 20px 0;
   padding: 20px max(20px, 60px);
+  @media screen and (max-width: 768px) {
+    padding: 10px 0;
+  }
 
   position: fixed;
   top: 25vh;
@@ -59,7 +62,7 @@ const AppName = styled.div`
 `;
 
 const MinTitle = styled.div`
-  margin: 16px;
+  margin: 20px 0 12px 0;
   font-size: 25px;
   font-weight: bold;
   font-family: "Zen Maru Gothic", serif;
@@ -104,7 +107,7 @@ const AppTest = styled.div`
   border-radius: 10px;
 
   @media screen and (max-width: 768px) {
-    width: 92vw;
+    width: 100%;
   }
 `;
 

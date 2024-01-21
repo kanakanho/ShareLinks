@@ -12,13 +12,14 @@ type Props = { links: Links[] };
 const LinkContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   overflow-x: scroll;
   scrollbar-width: none;
+  padding: 0 10px;
 `;
 
 const IconA = styled.a`
+  margin: 0.5vw;
   padding: 0.5vw;
   display: flex;
   flex-direction: column;
