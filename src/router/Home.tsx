@@ -30,23 +30,25 @@ const Main = styled.main`
 const AppName = styled.div`
   grid-column: 1;
   text-align: center;
-  margin: 20px 0;
-  padding: 20px;
+  margin: 20px auto;
+  padding: 20px max(20px, 60px);
 
   position: fixed;
-  top: 26vh;
+  top: 25vh;
 
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   p {
-    font-size: 25px;
+    margin: 0;
+    font-size: 30px;
     font-weight: bold;
     font-family: "Zen Maru Gothic", serif;
     word-break: auto-phrase;
+    letter-spacing: 8px;
   }
 
   h1 {
-    font-size: 50px;
+    font-size: 56px;
     color: orange;
   }
 
@@ -54,6 +56,14 @@ const AppName = styled.div`
     position: relative;
     top: 5vh;
   }
+`;
+
+const MinTitle = styled.div`
+  margin: 16px;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Zen Maru Gothic", serif;
+  word-break: auto-phrase;
 `;
 
 const Start = styled.div`
@@ -121,8 +131,9 @@ const Home: FC = () => {
   return (
     <Main>
       <AppName>
-        <p>デザインいらず！</p>
-        <p>ノーコードで作るポートフォリオ</p>
+        <MinTitle>デザインいらず！</MinTitle>
+        <p>ノーコードで作る</p>
+        <p>ポートフォリオ</p>
         <h1>ShareLinks</h1>
         <Start onClick={openMenu}>
           試してみる
