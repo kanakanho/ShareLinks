@@ -18,7 +18,7 @@ type IsMenu = {
 };
 
 type LauoutProps = {
-  url : string;
+  url: string;
   $isdemo: string;
 };
 
@@ -37,7 +37,6 @@ const LayoutContainer = styled.div<LauoutProps>`
   @media screen and (max-width: 768px) {
     display: block;
     width: 100%;
-    padding: 5px;
   }
 `;
 
@@ -57,13 +56,21 @@ const HeaderContainer = styled.div`
   margin: 20px 0;
   text-align: center;
   position: relative;
+  @media screen and (max-width: 768px) {
+    margin: 0;
+    padding: 15px 5px 10px 5px;
+  }
 `;
 
 const UserContainer = styled.div``;
 
 const LinkContainer = styled.div``;
 
-const ProductsContainer = styled.div``;
+const ProductsContainer = styled.div`
+  @media screen and (max-width: 768px) {
+    padding: 5px;
+  }
+`;
 
 const FooterContainer = styled.a``;
 
