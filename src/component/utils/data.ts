@@ -2,7 +2,7 @@ export type Data = {
   Name: string;
   Description: string;
   Icon: string;
-  BgImage : string;
+  BgImage: string;
   Links: {
     alt: string;
     url: string;
@@ -20,7 +20,7 @@ export type Data = {
 export const demoData: Data = {
   Name: "Programmer",
   Description: "Web Developer\nTypeScript & Python",
-  Icon: "https://pbs.twimg.com/profile_images/1673567713954873344/SQymHa9-_400x400.jpg",
+  Icon: "https://img.esa.io/uploads/production/attachments/19973/2024/01/22/148413/cf4691a3-6ae6-4636-ab02-b8415cd0925d.png",
   BgImage: "https://kanakanho.vercel.app/img/blue.jpeg",
   Links: [
     {
