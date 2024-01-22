@@ -8,6 +8,7 @@ import Button from "./user/Button";
 import Menu from "../menu/Menu";
 import { useMenuMutators, useMenuState } from "../globalstate/menu";
 import { Data, demoData } from "../utils/data";
+import NotFound from "../../router/NotFound";
 
 type Props = {
   params: string;
@@ -85,6 +86,21 @@ const Layout: FC<Props> = ({ params }) => {
   }, [params]);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
+  const [isNotFound, setisNotFound] = useState<boolean>(false);
+  useEffect(() => {
+    fetch(`https://api.github.com/repos/${params}/ShareLinks`)
+      .then((res) => {
+        if (res.status === 200) {
+          setisNotFound(false);
+        } else {
+          setisNotFound(true);
+        }
+      })
+      .catch(() => {
+        setisNotFound(true);
+      });
+  }, [params]);
+
   const jsonUrl = `https://raw.githubusercontent.com/${params}/ShareLinks/main/data.json`;
 
   const handleClickOutsideMenu = useCallback(
@@ -117,6 +133,11 @@ const Layout: FC<Props> = ({ params }) => {
         });
     }
   }, [jsonUrl, params]);
+
+  if (isNotFound) {
+    return <NotFound />;
+  }
+
   return (
     <>
       <LayoutContainer url={data.BgImage} $isdemo={isDemo ? "true" : "false"}>
