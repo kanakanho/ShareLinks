@@ -79,15 +79,14 @@ const Layout: FC<Props> = ({ params }) => {
   const isMenu = useMenuState();
   const { setMenuPermissionState } = useMenuMutators();
   const [isDemo, setisDemo] = useState<boolean>(false);
-  useEffect(() => {
-    if (params === "text") {
-      setisDemo(true);
-    }
-  }, [params]);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   const [isNotFound, setisNotFound] = useState<boolean>(false);
   useEffect(() => {
+    if (params === "text") {
+      setisNotFound(false);
+      return;
+    }
     fetch(`https://api.github.com/repos/${params}/ShareLinks`)
       .then((res) => {
         if (res.status === 200) {
