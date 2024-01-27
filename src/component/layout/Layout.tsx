@@ -129,7 +129,11 @@ const Layout: FC<Props> = ({ params }) => {
         .then((res) => res.json())
         .then((data) => {
           setData(data[0]);
+          setisDemo(false);
         });
+    } else {
+      setData(demoData);
+      setisDemo(true);
     }
   }, [jsonUrl, params]);
 
