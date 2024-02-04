@@ -30,13 +30,6 @@ const Title = styled.div`
   grid-column: 1;
 `;
 
-const MiniTitle = styled.div`
-  margin: 30px 0 15px 0;
-  padding: 0 15px;
-  font-size: 20px;
-  font-weight: 600;
-`;
-
 const Text = styled.div`
   padding: 5px 0;
 `;
