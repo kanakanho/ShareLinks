@@ -1,21 +1,27 @@
-# ShareLinks
+# [ShareLinks](https://github.com/kanakanho/ShareLinks)
 
 ShareLinks は デザインなし、ノーコードでポートフォリオを作成するためのサービスです。
 json の形に従って情報を入力することでオリジナルのポートフォリオを作ることができます。
 
-バグ等あればご報告ください。 [@kanakanho](https://twitter.com/Shiba_ao_)
+[サービスの利用はこちらから](https://share-links-kanakanho.vercel.app/)
+
+# 使い方
+
+1. [この書き方](#jsonの書き方)に沿ってポートレートの内容を data.json に書こう!
+2. Github に ShareLinks という名前のレポジトリを作ろう!
+3. そのレポジトリに作っておいた data.json をあげよう!
+4. [ShareLinks](https://share-links-kanakanho.vercel.app/) でこのサービスにログイン
+5. 発行されたリンクをコピーしてポートフォリオを共有しよう!
 
 # Jsonの書き方
 
-要素は大きく分けて
+要素は大きく分けて以下の3つで構成される
 
 - ヘッダ
 - リンク
 - 記事
 
-の 3 つの要素で構成されています。
-
-最後に[全体の例](#全体の例)が書いてあります。
+最後に[全体の例](#全体の例)が書いてあるのでそちらもご覧ください
 
 ## ヘッダ
 
@@ -242,3 +248,7 @@ Youtubeの動画を貼れます。
   }
 ]
 ```
+
+# アプリ概要
+
+[**概要はこちら**](https://kanakanho.github.io/WebProgramBasicReport/%E6%8F%90%E5%87%BA%E7%94%A8.html)

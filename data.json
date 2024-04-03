@@ -1,7 +1,8 @@
 [
   {
     "Name": "柴田青賢",
-    "Description": "愛知工業大学 情報科学部 情報科学科 1年\nデザインもするプログラマーです\n \nNext & React , python\nAdobe illustrator & Figma\n \n各プロジェクトの詳細は下のArticleより\nご確認ください",
+
+    "Description": "愛知工業大学 情報科学科 2年\nデザインもするプログラマーです\n \nNext & React , python\nUnity(MetaQuest)\n \nAdobe illustrator & Figma\n \n各プロジェクトの詳細は下のArticleより\nご確認ください",
     "Icon": "https://pbs.twimg.com/profile_images/1673567713954873344/SQymHa9-_400x400.jpg",
     "BgImage": "https://kanakanho.vercel.app/img/blue.jpeg",
     "Links": [
@@ -20,6 +21,14 @@
         "article": "",
         "margin": "",
         "link": ""
+      },
+      {
+        "image": "https://raw.githubusercontent.com/kanakanho/ShareLinks/main/src/assets/share-links-ogp.png",
+        "movie": "",
+        "title": "webアプリ「ShareLinks」",
+        "article": "授業内課題で制作したリンク共有のためのプラットフォームです",
+        "margin": "",
+        "link": "https://github.com/kanakanho/ShareLinks"
       },
       {
         "image": "https://kanakanho-record.vercel.app/img/munsellcolor.jpeg",
