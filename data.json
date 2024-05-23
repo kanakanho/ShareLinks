@@ -1,8 +1,7 @@
 [
   {
     "Name": "柴田青賢",
-
-    "Description": "愛知工業大学 情報科学科 2年\nデザインもするプログラマーです\n \nNext & React , python\nUnity(MetaQuest)\n \nAdobe illustrator & Figma\n \n各プロジェクトの詳細は下のArticleより\nご確認ください",
+    "Description": "愛知工業大学 情報科学部 情報科学科 1年\nデザインもするプログラマーです\n \nNext & React , python\nAdobe illustrator & Figma\n \n各プロジェクトの詳細は下のArticleより\nご確認ください",
     "Icon": "https://pbs.twimg.com/profile_images/1673567713954873344/SQymHa9-_400x400.jpg",
     "BgImage": "https://kanakanho.vercel.app/img/blue.jpeg",
     "Links": [
@@ -21,6 +20,14 @@
         "article": "",
         "margin": "",
         "link": ""
+      },
+      {
+        "image": "",
+        "movie": "6viKnB63KqA",
+        "title": "ARアプリ「XR Study Watch」",
+        "article": "研究室の研究内容をARで可視化するアプリです",
+        "margin": "",
+        "link": "https://1drv.ms/p/s!At9nQfAdQ6bgmjygbbjYoyFuhm0z?e=dr1qCB"
       },
       {
         "image": "https://raw.githubusercontent.com/kanakanho/ShareLinks/main/src/assets/share-links-ogp.png",
@@ -68,7 +75,7 @@
         "title": "ゲーム 「中華の達人」",
         "article": "TGS2023に向けて制作したゲームです。",
         "margin": "",
-        "link": "https://ait-tgs-tyuukanotatujin.vercel.app/"
+        "link": "https://kanakanho-record.vercel.app/posts/tgs-2023/"
       },
       {
         "image": "",
@@ -76,7 +83,7 @@
         "title": "アプリ 「wisdom Tree」",
         "article": "技育展2023に向けて開発したアプリです。",
         "margin": "",
-        "link": "https://kanakanho-record.vercel.app/posts/wisdom-tree"
+        "link": "https://kanakanho-record.vercel.app/posts/geekten2023-final/"
       },
       {
         "image": "https://kanakanho-record.vercel.app/img/geekcamp-0617/paper_app_title.png",
